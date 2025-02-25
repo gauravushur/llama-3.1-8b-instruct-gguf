@@ -20,15 +20,14 @@ class InferlessPythonModel:
         system_prompt = inputs.get("system_prompt","You are a friendly bot.")
         temperature = inputs.get("temperature",0.7)
         top_p = inputs.get("top_p",0.1)
-        top_k = inputs.get("top_k",40)
-        repeat_penalty = inputs.get("repeat_penalty",1.18)
+        repeat_penalty = inputs.get("repeat_penalty",1.0)
         max_tokens = inputs.get("max_tokens",256)
         
         output = self.llm.create_chat_completion(
                     messages = [
                       {"role": "system", "content": f"{system_prompt}"},
                       {"role": "user","content": f"{prompt}"}],
-                    temperature=temperature, top_p=top_p, top_k=top_k,repeat_penalty=repeat_penalty,max_tokens=max_tokens
+                    temperature=temperature, top_p=top_p, repeat_penalty=repeat_penalty,max_tokens=max_tokens
         )
         text_result = output['choices'][0]['message']['content']
         

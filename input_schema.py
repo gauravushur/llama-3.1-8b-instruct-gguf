@@ -27,18 +27,12 @@ INPUT_SCHEMA = {
         'datatype': 'FP32',
         'required': False,
         'shape': [1],
-        'example': [1.18]
+        'example': [1.0]
     },
     "max_tokens": {
         'datatype': 'INT16',
         'required': False,
         'shape': [1],
         'example': [512]
-    },
-    "top_k":{
-        'datatype': 'INT8',
-        'required': False,
-        'shape': [1],
-        'example': [40]
     }
 }
